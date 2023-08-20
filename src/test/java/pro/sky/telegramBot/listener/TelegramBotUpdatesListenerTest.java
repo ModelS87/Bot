@@ -41,7 +41,19 @@ public class TelegramBotUpdatesListenerTest {
             notificationTaskService,
             new TelegramBotService(telegramBot)
     );
-
+    @BeforeEach
+    public void beforeEach() {
+        Mockito.when(telegramBot.execute(any())).thenReturn(
+                BotUtils.fromJson(
+                        """
+                            {
+                              "ok": true
+                            }
+                            """,
+                        SendResponse.class
+                )
+        );
+    }
     @Test
     public void handleStartTest() throws URISyntaxException, IOException {
         String json = Files.readString(
