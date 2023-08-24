@@ -43,8 +43,10 @@ public class TelegramBotUpdatesListenerTest {
     );
     @BeforeEach
     public void beforeEach() {
-        Mockito.when(telegramBot.execute(any())).thenReturn(json,"{/"ok": true}",
+        Mockito.when(telegramBot.execute(any())).thenReturn(
+                BotUtils.fromJson("{\"ok\": true}",
                 SendResponse.class
+                )
         );
     }
     @Test
