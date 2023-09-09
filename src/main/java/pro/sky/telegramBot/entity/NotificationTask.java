@@ -3,6 +3,7 @@ package pro.sky.telegramBot.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,6 +26,7 @@ public class NotificationTask {
 
     @Column(name = "date_time", nullable = false)
     private LocalDateTime dateTime;
+    private LocalTime time;
 
     public NotificationTask(String text, long chatId, LocalDateTime dateTime) {
         this.text = text;
